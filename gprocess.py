@@ -31,7 +31,7 @@ def gesture_handle(vels):
 
 def scroll_sens(x):
     x_new = 2*x-1
-    expo = -SIGMOID_STRETCH * (abs(x_new) + OFFSET)
+    expo = -(SIGMOID_STRETCH * (abs(x_new) + OFFSET))
     denom = math.e ** expo + 1
     sigmoid = 1/(denom+1)
 
