@@ -37,8 +37,6 @@ with mp_hands.Hands(
           mp_hands.HAND_CONNECTIONS,
           mp_drawing_styles.get_default_hand_landmarks_style(),
           mp_drawing_styles.get_default_hand_connections_style())
-    cv2.imwrite(
-        '/tmp/annotated_image' + str(idx) + '.png', cv2.flip(annotated_image, 1))
     # Draw hand world landmarks.
     if not results.multi_hand_world_landmarks:
       continue
@@ -54,6 +52,7 @@ with mp_hands.Hands(
     min_tracking_confidence=0.5) as hands:
   while cap.isOpened():
     success, image = cap.read()
+    
     if not success:
       print("Ignoring empty camera frame.")
       # If loading a video, use 'break' instead of 'continue'.
@@ -68,8 +67,15 @@ with mp_hands.Hands(
     # Draw the hand annotations on the image.
     image.flags.writeable = True
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+    image_height, image_width, _ = image.shape
     if results.multi_hand_landmarks:
       for hand_landmarks in results.multi_hand_landmarks:
+        print('hand_landmarks:', hand_landmarks)
+        print(
+            f'Index finger tip coordinates: (',
+            f'{hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width}, '
+            f'{hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height})'
+        )
         mp_drawing.draw_landmarks(
             image,
             hand_landmarks,
