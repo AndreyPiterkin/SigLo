@@ -1,4 +1,3 @@
-from unittest import result
 import cv2
 import mediapipe as mp
 from numpy import False_
@@ -11,7 +10,7 @@ mp_hands = mp.solutions.hands
 # For webcam input:
 cap = cv2.VideoCapture(0)
 with mp_hands.Hands(
-    model_complexity=1,
+    model_complexity=0,
     min_detection_confidence=0.5,
     min_tracking_confidence=0.5) as hands:
   previous_landmark = False
@@ -35,11 +34,11 @@ with mp_hands.Hands(
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
     image_height, image_width, _ = image.shape
     if results.multi_hand_landmarks:
-      for hand_landmarks in results.multi_hand_landmarks:
-        if previous_landmark == False:
-         gp.gesture_handle(gp.delta_landmark(hand_landmarks.landmark[8], hand_landmarks.landmark[8]), results.multi_handedness[0].classification[0].label, results.multi_handedness[0].classification[0].score, hand_landmarks, hand_landmarks)
+      for i, hand_landmarks in enumerate(results.multi_hand_landmarks):
+        if not previous_landmark:
+         gp.gesture_handle(gp.delta_landmark(hand_landmarks.landmark[7], hand_landmarks.landmark[7]), results.multi_handedness[i].classification[0], hand_landmarks, hand_landmarks)
         else:
-         gp.gesture_handle(gp.delta_landmark(previous_landmark, hand_landmarks.landmark[8]), results.multi_handedness[0].classification[0].label, results.multi_handedness[0].classification[0].score, hand_landmarks, previous_landmarks)
+         gp.gesture_handle(gp.delta_landmark(previous_landmark, hand_landmarks.landmark[7]), results.multi_handedness[i].classification[0], hand_landmarks, previous_landmarks)
         mp_drawing.draw_landmarks(
             image,
             hand_landmarks,

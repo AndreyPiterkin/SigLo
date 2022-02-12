@@ -26,7 +26,3 @@ def swipe_right():
         time.sleep(0.1)
     keyboard.release(Key.alt_l)
     keyboard.release(Key.right)
-
-def type_a():
-    keyboard.type("a")
-    print("a pressed")
