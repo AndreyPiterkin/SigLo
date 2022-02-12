@@ -1,4 +1,9 @@
-# SigLo - Reinvent your input.
+<img src="https://cdn.discordapp.com/attachments/839022894620999722/942197829701615676/Frame_2_1.png" height="100px" />
+<hr>
+
+### Reinvent your input.
+
+
 
 SigLo is a python program that uses computer vision to use gestures to interact with their computer naturally.
 
