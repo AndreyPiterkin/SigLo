@@ -25,6 +25,8 @@ Note: During a presentation, the camera view will be hidden and the presentation
 ### Horizontal and vertical supported
 <img src="https://github.com/AndreyPiterkin/SigLo/blob/main/images/excel-scrolling.gif?raw=true" height="350px" />
 
+### Online Video Seeking
+<img src="https://github.com/AndreyPiterkin/SigLo/blob/main/images/youtube-video.gif?raw=true" height="350px" />
 
 ## Installation
 
