@@ -14,15 +14,11 @@ def scroll_y(scroll_amount):
     mouse.scroll(0, scroll_amount)
 
 def swipe_left():
-    with keyboard.pressed(Key.alt_l):
-        keyboard.press(Key.left)
-        time.sleep(0.1)
-    keyboard.release(Key.alt_l)
+    keyboard.press(Key.left)
+    time.sleep(0.05)
     keyboard.release(Key.left)
 
 def swipe_right():
-    with keyboard.pressed(Key.alt_l):
-        keyboard.press(Key.right)
-        time.sleep(0.1)
-    keyboard.release(Key.alt_l)
+    keyboard.press(Key.right)
+    time.sleep(0.05)
     keyboard.release(Key.right)

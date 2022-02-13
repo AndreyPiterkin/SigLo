@@ -10,7 +10,7 @@ mp_hands = mp.solutions.hands
 # For webcam input:
 cap = cv2.VideoCapture(0)
 with mp_hands.Hands(
-    model_complexity=0,
+    model_complexity=1,
     min_detection_confidence=0.5,
     min_tracking_confidence=0.5) as hands:
   previous_landmark = False
@@ -36,9 +36,9 @@ with mp_hands.Hands(
     if results.multi_hand_landmarks:
       for i, hand_landmarks in enumerate(results.multi_hand_landmarks):
         if not previous_landmark:
-         gp.gesture_handle(gp.delta_landmark(hand_landmarks.landmark[7], hand_landmarks.landmark[7]), results.multi_handedness[i].classification[0], hand_landmarks, hand_landmarks)
+         gp.gesture_handle(gp.delta_landmark(hand_landmarks.landmark[7], hand_landmarks.landmark[7]), results.multi_handedness[i].classification[0])
         else:
-         gp.gesture_handle(gp.delta_landmark(previous_landmark, hand_landmarks.landmark[7]), results.multi_handedness[i].classification[0], hand_landmarks, previous_landmarks)
+         gp.gesture_handle(gp.delta_landmark(previous_landmark, hand_landmarks.landmark[7]), results.multi_handedness[i].classification[0])
         mp_drawing.draw_landmarks(
             image,
             hand_landmarks,
