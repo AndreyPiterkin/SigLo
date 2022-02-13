@@ -14,6 +14,18 @@ SigLo is a python program that uses computer vision to use gestures to interact 
 <img src="https://viz.mediapipe.dev/logo.png" width="50px"/>
 </p>
 
+## Usage
+### Swipe Gesture for switching slides during a presentation
+<img src="https://github.com/AndreyPiterkin/SigLo/blob/main/images/slides-swapping.gif?raw=true" height="350px" />
+Note: During a presentation, the camera view will be hidden and the presentation will be full-screen
+
+### Scrolling gesture for scrolling through a webpage
+<img src="https://github.com/AndreyPiterkin/SigLo/blob/main/images/website-scrolling.gif?raw=true" height="350px" />
+
+### Horizontal and vertical supported
+<img src="https://github.com/AndreyPiterkin/SigLo/blob/main/images/excel-scrolling.gif?raw=true" height="350px" />
+
+
 ## Installation
 
 1. Clone the repo
